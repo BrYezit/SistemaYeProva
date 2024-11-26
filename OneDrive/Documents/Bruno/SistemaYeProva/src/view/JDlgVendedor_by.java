@@ -355,28 +355,29 @@ public class JDlgVendedor_by extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
- String resp = JOptionPane.showInputDialog(null, "Entre com o código do funcionario");
-        
- 
- 
-           Vendedor_byDAO vendedorDAO = new Vendedor_byDAO();
+// String resp = JOptionPane.showInputDialog(null, "Entre com o código do funcionario");
+//        
+// 
+// 
+//           Vendedor_byDAO vendedorDAO = new Vendedor_byDAO();
+//           
+//           Vendedor_by vendedor = (Vendedor_by) vendedorDAO.list(Integer.valueOf (resp));
+//           resp = String.valueOf(vendedor.getIdvendedor_by());
+//           
+//           jTxtCodigo_by.setText(resp);
+//           jTxtBairro_by.setText(vendedor.getBairro_by());
+//           jTxtCep_by.setText(vendedor.getCep_by());
+//           jTxtCpf_by.setText(vendedor.getCpf_by());
+//           jTxtEmail_by.setText(vendedor.getEmail_by());
+//           jTxtNome_by.setText(vendedor.getNome_by());
+//           jTxtDataNascimento_by.setText(null);
+//           jTxtEndereco_by.setText(vendedor.getEndereco_by());
+//           jTxtCelular_by.setText(resp);
+//           jCboSexo_by.setSelectedItem(vendedor.getSexo_by());
            
-           Vendedor_by vendedor = (Vendedor_by) vendedorDAO.list(Integer.valueOf (resp));
-           resp = String.valueOf(vendedor.getIdvendedor_by());
-           
-           jTxtCodigo_by.setText(resp);
-           jTxtBairro_by.setText(vendedor.getBairro_by());
-           jTxtCep_by.setText(vendedor.getCep_by());
-           jTxtCpf_by.setText(vendedor.getCpf_by());
-           jTxtEmail_by.setText(vendedor.getEmail_by());
-           jTxtNome_by.setText(vendedor.getNome_by());
-           jTxtDataNascimento_by.setText(null);
-           jTxtEndereco_by.setText(vendedor.getEndereco_by());
-           jTxtCelular_by.setText(resp);
-           jCboSexo_by.setSelectedItem(vendedor.getSexo_by());
-           
  
- 
+            JDlgPesquisar_by jDlgPesquisar_by = new JDlgPesquisar_by(null,true);
+           jDlgPesquisar_by.setVisible(true);
  
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

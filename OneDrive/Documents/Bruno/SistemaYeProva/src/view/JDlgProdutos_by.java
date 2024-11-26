@@ -4,9 +4,9 @@
  */
 package view;
 
-import dao.Produtos_byDAO;
+
 import javax.swing.JOptionPane;
-import bean.Produtos_by;
+import tools.Util;
 
 /**
  *
@@ -22,7 +22,7 @@ public class JDlgProdutos_by extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Produto");
         setLocationRelativeTo(null);
-        habilitar(false);
+        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by);
     }
             public void habilitar(boolean valor){
         jTxtCodigo_by.setEnabled(valor);
@@ -361,31 +361,32 @@ public class JDlgProdutos_by extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        String resp = JOptionPane.showInputDialog(null, "Entre com o código do usuário");
-     
-          Produtos_byDAO produtosDAO = new Produtos_byDAO();
-           
-           Produtos_by produtos = (Produtos_by) produtosDAO.list(Integer.valueOf (resp));
-           resp = String.valueOf(produtos.getIdproduto_by());
-           
-           jTxtCodigo_by.setText(resp);
-           jTxtNome_by.setText(produtos.getNome_by());
-           jTxtDataDeFabricacao_by.setText(null);
-           jTxtDataDeVencimento_by.setText(null);
-           jTxtMarca_by.setText(produtos.getMarca_by());
-           jTxtNome_by.setText(produtos.getNome_by());
-           jTxtNota_by.setText(produtos.getNota_by());
-           jTxtPreco_by.setText(resp);
-           jTxtQuantidade_by.setText(resp);
-           jTxtFk_fornecedor_by.setText(resp);
-           jTxtMl_by.setText(resp);
-     
-           jCboFamilia_by.setSelectedItem(produtos.getFamilia_by());
-           jCboTipo_by.setSelectedItem(produtos.getTipo_by());
-           
-  
-        
-           
+//        String resp = JOptionPane.showInputDialog(null, "Entre com o código do usuário");
+//     
+//          Produtos_byDAO produtosDAO = new Produtos_byDAO();
+//           
+//           Produtos_by produtos = (Produtos_by) produtosDAO.list(Integer.valueOf (resp));
+//           resp = String.valueOf(produtos.getIdproduto_by());
+//           
+//           jTxtCodigo_by.setText(resp);
+//           jTxtNome_by.setText(produtos.getNome_by());
+//           jTxtDataDeFabricacao_by.setText(null);
+//           jTxtDataDeVencimento_by.setText(null);
+//           jTxtMarca_by.setText(produtos.getMarca_by());
+//           jTxtNome_by.setText(produtos.getNome_by());
+//           jTxtNota_by.setText(produtos.getNota_by());
+//           jTxtPreco_by.setText(resp);
+//           jTxtQuantidade_by.setText(resp);
+//           jTxtFk_fornecedor_by.setText(resp);
+//           jTxtMl_by.setText(resp);
+//     
+//           jCboFamilia_by.setSelectedItem(produtos.getFamilia_by());
+//           jCboTipo_by.setSelectedItem(produtos.getTipo_by());
+//           
+//  
+//        
+           JDlgPesquisar_by jDlgPesquisar_by = new JDlgPesquisar_by(null,true);
+           jDlgPesquisar_by.setVisible(true);     
         
         
     }//GEN-LAST:event_jBtnPesquisarActionPerformed

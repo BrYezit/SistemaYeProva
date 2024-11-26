@@ -27,33 +27,6 @@ public class JDlgCliente_by extends javax.swing.JDialog {
                 jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
                 jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by,jBtnConfirmar,jBtnCancelar);
     }
-    
-   public void habilitar(boolean valor){
-        jBtnIncluir.setEnabled(!valor);
-        jBtnAlterar.setEnabled(!valor);
-        jBtnExcluir.setEnabled(!valor);
-        jBtnPesquisar.setEnabled(!valor);
-        jBtnCancelar.setEnabled( valor);
-        jBtnConfirmar.setEnabled( valor);
-        
-        jTxtCodigo_by.setEnabled( valor);
-        jTxtNome_by.setEnabled( valor);
-        jTxtCpf_by.setEnabled( valor);
-        jTxtBairro_by.setEnabled( valor);
-        jTxtCidade_by.setEnabled( valor);
-        jTxtDataNascimento_by.setEnabled( valor);
-        jCboEstadoCivil_by.setEnabled( valor);
-        jTxtEmail_by.setEnabled( valor);
-        jTxtNumeroDaResidencial_by.setEnabled( valor);
-        jTxtObservacao_by.setEnabled( valor);
-        jTxtCep_by.setEnabled( valor);
-        jTxtProfissao_by.setEnabled( valor);
-        jTxtRuaDaResidencia_by.setEnabled( valor);
-        jTxtTelefone_by.setEnabled( valor);
-        jCboSexo_by.setEnabled(valor);
-       
-   }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -409,81 +382,86 @@ public class JDlgCliente_by extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        habilitar(false);
+         Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,
+                jTxtBairro_by,jTxtCidade_by,jTxtDataNascimento_by,jCboEstadoCivil_by,
+                jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
+                jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by,jBtnConfirmar,jBtnCancelar);
+         Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
       int resp = JOptionPane.showConfirmDialog(null, "Confirma exclusão", "Deletar registro", JOptionPane.YES_NO_OPTION);
-        if(resp == JOptionPane.YES_OPTION){
-            Clientes_by clientes = new Clientes_by();
-            
-        int cod = Integer.parseInt(jTxtCodigo_by.getText());
-        clientes.setIdclientes_by(cod);
-        
-        clientes.setNome_by(jTxtNome_by.getText());
-        clientes.setBairro_by(jTxtBairro_by.getText());
-        clientes.setCep_by(jTxtCep_by.getText());
-        clientes.setDataNascimento_by(null);
-        clientes.setCidade_by(jTxtCidade_by.getText());
-        clientes.setCpf_by(jTxtCpf_by.getText());
-        clientes.setEmail_by(jTxtEmail_by.getText());
-        clientes.setEstado_civil_by((String) jCboEstadoCivil_by.getSelectedItem());
-        clientes.setSexo_by((String) jCboSexo_by.getSelectedItem());
-        
-        int num = Integer.parseInt(jTxtNumeroDaResidencial_by.getText());
-        clientes.setNumero_da_residencia_by(num);
-        
-        clientes.setTelefone_by(jTxtTelefone_by.getText());
-        clientes.setObservacao_by(jTxtObservacao_by.getText());
-        clientes.setProfissao_by(jTxtProfissao_by.getText());
-        clientes.setRua_da_residencia_by(jTxtRuaDaResidencia_by.getText());
-        
-        
-  
-        Clientes_byDAO clientesDAO = new Clientes_byDAO();
-        clientesDAO.delete(clientes);
-        
-        }
-        //JOptionPane.showMessageDialog(null, "Exclusão ok ");
-        
+//        if(resp == JOptionPane.YES_OPTION){
+//            Clientes_by clientes = new Clientes_by();
+//            
+//        int cod = Integer.parseInt(jTxtCodigo_by.getText());
+//        clientes.setIdclientes_by(cod);
+//        
+//        clientes.setNome_by(jTxtNome_by.getText());
+//        clientes.setBairro_by(jTxtBairro_by.getText());
+//        clientes.setCep_by(jTxtCep_by.getText());
+//        clientes.setDataNascimento_by(null);
+//        clientes.setCidade_by(jTxtCidade_by.getText());
+//        clientes.setCpf_by(jTxtCpf_by.getText());
+//        clientes.setEmail_by(jTxtEmail_by.getText());
+//        clientes.setEstado_civil_by((String) jCboEstadoCivil_by.getSelectedItem());
+//        clientes.setSexo_by((String) jCboSexo_by.getSelectedItem());
+//        
+//        int num = Integer.parseInt(jTxtNumeroDaResidencial_by.getText());
+//        clientes.setNumero_da_residencia_by(num);
+//        
+//        clientes.setTelefone_by(jTxtTelefone_by.getText());
+//        clientes.setObservacao_by(jTxtObservacao_by.getText());
+//        clientes.setProfissao_by(jTxtProfissao_by.getText());
+//        clientes.setRua_da_residencia_by(jTxtRuaDaResidencia_by.getText());
+//        
+//        
+//  
+//        Clientes_byDAO clientesDAO = new Clientes_byDAO();
+//        clientesDAO.delete(clientes);
+//        
+//        }
+//        //JOptionPane.showMessageDialog(null, "Exclusão ok ");
+//        
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
- String resp = JOptionPane.showInputDialog(null, "Entre com o código do funcionario");
-        
-           Clientes_byDAO clientesDAO = new Clientes_byDAO();
-           
-           Clientes_by clientes = (Clientes_by) clientesDAO.list(Integer.valueOf (resp));
-           resp = String.valueOf(clientes.getIdclientes_by());
-           
-           jTxtCodigo_by.setText(resp);
-           jTxtBairro_by.setText(clientes.getBairro_by());
-           jTxtCep_by.setText(clientes.getCep_by());
-           jTxtCidade_by.setText(clientes.getCidade_by());
-           jTxtCpf_by.setText(clientes.getCpf_by());
-           jTxtEmail_by.setText(clientes.getEmail_by());
-           jTxtNome_by.setText(clientes.getNome_by());
-           
-           jTxtNumeroDaResidencial_by.setText(resp);
-           
-           jTxtObservacao_by.setText(clientes.getObservacao_by());
-           jTxtProfissao_by.setText(clientes.getProfissao_by());
-           jTxtRuaDaResidencia_by.setText(clientes.getRua_da_residencia_by());
-           
-           
-           jTxtNumeroDaResidencial_by.setText(resp);
-        
-           jTxtTelefone_by.setText(clientes.getTelefone_by());
-
-      
-           jCboEstadoCivil_by.setSelectedItem(clientes.getEstado_civil_by());
-           jCboSexo_by.setSelectedItem(clientes.getSexo_by());
-           
+// String resp = JOptionPane.showInputDialog(null, "Entre com o código do funcionario");
+//        
+//           Clientes_byDAO clientesDAO = new Clientes_byDAO();
+//           
+//           Clientes_by clientes = (Clientes_by) clientesDAO.list(Integer.valueOf (resp));
+//           resp = String.valueOf(clientes.getIdclientes_by());
+//           
+//           jTxtCodigo_by.setText(resp);
+//           jTxtBairro_by.setText(clientes.getBairro_by());
+//           jTxtCep_by.setText(clientes.getCep_by());
+//           jTxtCidade_by.setText(clientes.getCidade_by());
+//           jTxtCpf_by.setText(clientes.getCpf_by());
+//           jTxtEmail_by.setText(clientes.getEmail_by());
+//           jTxtNome_by.setText(clientes.getNome_by());
+//           
+//           jTxtNumeroDaResidencial_by.setText(resp);
+//           
+//           jTxtObservacao_by.setText(clientes.getObservacao_by());
+//           jTxtProfissao_by.setText(clientes.getProfissao_by());
+//           jTxtRuaDaResidencia_by.setText(clientes.getRua_da_residencia_by());
+//           
+//           
+//           jTxtNumeroDaResidencial_by.setText(resp);
+//        
+//           jTxtTelefone_by.setText(clientes.getTelefone_by());
+//
+//      
+//           jCboEstadoCivil_by.setSelectedItem(clientes.getEstado_civil_by());
+//           jCboSexo_by.setSelectedItem(clientes.getSexo_by());
+//           
   
         
-           
+           JDlgPesquisar_by jDlgPesquisar_by = new JDlgPesquisar_by(null,true);
+           jDlgPesquisar_by.setVisible(true);
            
            
            
@@ -492,34 +470,11 @@ public class JDlgCliente_by extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         
-          Clientes_by clientes = new Clientes_by();
-          
-         int cod = Integer.parseInt(jTxtCodigo_by.getText());
-        clientes.setIdclientes_by(cod);
-        
-        clientes.setNome_by(jTxtNome_by.getText());
-        clientes.setBairro_by(jTxtBairro_by.getText());
-        clientes.setCep_by(jTxtCep_by.getText());
-        clientes.setDataNascimento_by(null);
-        clientes.setCidade_by(jTxtCidade_by.getText());
-        clientes.setCpf_by(jTxtCpf_by.getText());
-        clientes.setEmail_by(jTxtEmail_by.getText());
-        clientes.setEstado_civil_by((String) jCboEstadoCivil_by.getSelectedItem());
-        clientes.setSexo_by((String)jCboSexo_by.getSelectedItem());
-        int num = Integer.parseInt(jTxtNumeroDaResidencial_by.getText());
-        clientes.setNumero_da_residencia_by(num);
-        
-        clientes.setTelefone_by(jTxtTelefone_by.getText());
-        clientes.setObservacao_by(jTxtObservacao_by.getText());
-        clientes.setProfissao_by(jTxtProfissao_by.getText());
-        clientes.setRua_da_residencia_by(jTxtRuaDaResidencia_by.getText());
-        
-        
-  
-        Clientes_byDAO clientesDAO = new Clientes_byDAO();
-        clientesDAO.insert(clientes);
-        
-        habilitar(false); 
+          Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,
+                jTxtBairro_by,jTxtCidade_by,jTxtDataNascimento_by,jCboEstadoCivil_by,
+                jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
+                jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by,jBtnConfirmar,jBtnCancelar);
+         Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
         
         
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
