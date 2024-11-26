@@ -150,6 +150,11 @@ public class JDlgCliente_by extends javax.swing.JDialog {
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Excluir.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
@@ -387,6 +392,10 @@ public class JDlgCliente_by extends javax.swing.JDialog {
                 jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
                 jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by,jBtnConfirmar,jBtnCancelar);
          Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+         Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,
+                jTxtBairro_by,jTxtCidade_by,jTxtDataNascimento_by,jCboEstadoCivil_by,
+                jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
+                jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
@@ -475,7 +484,10 @@ public class JDlgCliente_by extends javax.swing.JDialog {
                 jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
                 jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by,jBtnConfirmar,jBtnCancelar);
          Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
-        
+                 Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,
+                jTxtBairro_by,jTxtCidade_by,jTxtDataNascimento_by,jCboEstadoCivil_by,
+                jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
+                jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by);
         
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
@@ -486,6 +498,18 @@ public class JDlgCliente_by extends javax.swing.JDialog {
     private void jCboSexo_byActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboSexo_byActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCboSexo_byActionPerformed
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+        Util.habilitar(true,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,
+                jTxtBairro_by,jTxtCidade_by,jTxtDataNascimento_by,jCboEstadoCivil_by,
+                jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
+                jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by,jBtnConfirmar,jBtnCancelar);
+         Util.habilitar(false,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+         Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,
+                jTxtBairro_by,jTxtCidade_by,jTxtDataNascimento_by,jCboEstadoCivil_by,
+                jTxtEmail_by,jTxtNumeroDaResidencial_by,jTxtObservacao_by,jTxtCep_by,
+                jTxtProfissao_by,jTxtRuaDaResidencia_by,jTxtTelefone_by,jCboSexo_by);
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     /**
      * @param args the command line arguments

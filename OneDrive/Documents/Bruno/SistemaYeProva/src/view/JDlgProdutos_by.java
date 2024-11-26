@@ -22,31 +22,12 @@ public class JDlgProdutos_by extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Produto");
         setLocationRelativeTo(null);
-        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by);
+        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by,
+                jBtnConfirmar,jBtnCancelar);
     }
-            public void habilitar(boolean valor){
-        jTxtCodigo_by.setEnabled(valor);
-        jTxtNome_by.setEnabled(valor);
-        jCboTipo_by.setEnabled(valor);
-        jCboFamilia_by.setEnabled(valor);
-        jTxtMl_by.setEnabled(valor);
-        jTxtNota_by.setEnabled(valor);
-        jTxtDataDeFabricacao_by.setEnabled(valor);
-        jTxtDataDeVencimento_by.setEnabled(valor);
-        jTxtPreco_by.setEnabled(valor);
-        jTxtQuantidade_by.setEnabled(valor);
-        jTxtMarca_by.setEnabled(valor);
-        jTxtFk_fornecedor_by.setEnabled(valor);
-
-        
-        
-        jBtnConfirmar.setEnabled(valor);
-        jBtnCancelar.setEnabled(valor);   
-        jBtnAlterar.setEnabled(!valor);
-        jBtnIncluir.setEnabled(!valor); 
-        jBtnPesquisar.setEnabled(!valor);
-        jBtnExcluir.setEnabled(!valor); 
-    }
+            
             
 
     /**
@@ -357,6 +338,14 @@ public class JDlgProdutos_by extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+                Util.habilitar(true,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by,
+                jBtnConfirmar,jBtnCancelar);
+        Util.habilitar(false,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+        Util.limpar(jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by);
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
@@ -393,50 +382,64 @@ public class JDlgProdutos_by extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        habilitar(true);
+        Util.habilitar(true,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by,
+                jBtnConfirmar,jBtnCancelar);
+        Util.habilitar(false,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+        Util.limpar(jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        habilitar(false);
+        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by,
+                jBtnConfirmar,jBtnCancelar);
+        Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+        Util.limpar(jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         int resp = JOptionPane.showConfirmDialog(null, "Confirma exclusão", "Deletar registro", JOptionPane.YES_NO_OPTION);
-        if(resp == JOptionPane.YES_OPTION){
-            
-              Produtos_by produtos = new Produtos_by();
-             
-        int cod = Integer.parseInt(jTxtCodigo_by.getText());
-        produtos.setIdproduto_by(cod);
-        
-        produtos.setTipo_by((String) jCboTipo_by.getSelectedItem());   
-        produtos.setFamilia_by((String) jCboFamilia_by.getSelectedItem());   
-        
-        produtos.setData_de_fabricacao_by(null);
-        produtos.setData_de_vencimento_by(null);
-        
-        
-          int ml = Integer.parseInt(jTxtMl_by.getText());
-        produtos.setMl_by(ml);
-          int quant= Integer.parseInt(jTxtQuantidade_by.getText());
-        produtos.setQuantidade_by(quant);
-         int fk= Integer.parseInt(jTxtFk_fornecedor_by.getText());
-        produtos.setFk_forncedor_by(fk);
-        
-        
-        
-        produtos.setMarca_by(jTxtMarca_by.getText());
-        produtos.setNome_by(jTxtNome_by.getText());
-        produtos.setPreco_by(jTxtPreco_by.getText());
-        produtos.setNota_by(jTxtNota_by.getText());
-        
-        
-          Produtos_byDAO produtosDAO = new Produtos_byDAO();
-        produtosDAO.delete(produtos);
-           
-        }
+//        if(resp == JOptionPane.YES_OPTION){
+//            
+//              Produtos_by produtos = new Produtos_by();
+//             
+//        int cod = Integer.parseInt(jTxtCodigo_by.getText());
+//        produtos.setIdproduto_by(cod);
+//        
+//        produtos.setTipo_by((String) jCboTipo_by.getSelectedItem());   
+//        produtos.setFamilia_by((String) jCboFamilia_by.getSelectedItem());   
+//        
+//        produtos.setData_de_fabricacao_by(null);
+//        produtos.setData_de_vencimento_by(null);
+//        
+//        
+//          int ml = Integer.parseInt(jTxtMl_by.getText());
+//        produtos.setMl_by(ml);
+//          int quant= Integer.parseInt(jTxtQuantidade_by.getText());
+//        produtos.setQuantidade_by(quant);
+//         int fk= Integer.parseInt(jTxtFk_fornecedor_by.getText());
+//        produtos.setFk_forncedor_by(fk);
+//        
+//        
+//        
+//        produtos.setMarca_by(jTxtMarca_by.getText());
+//        produtos.setNome_by(jTxtNome_by.getText());
+//        produtos.setPreco_by(jTxtPreco_by.getText());
+//        produtos.setNota_by(jTxtNota_by.getText());
+//        
+//        
+//          Produtos_byDAO produtosDAO = new Produtos_byDAO();
+//        produtosDAO.delete(produtos);
+//           
+//        }
         
         // JOptionPane.showMessageDialog(null, "Exclusão ok ");
     }//GEN-LAST:event_jBtnExcluirActionPerformed
@@ -445,38 +448,45 @@ public class JDlgProdutos_by extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         
-              Produtos_by produtos = new Produtos_by();
-             
-        int cod = Integer.parseInt(jTxtCodigo_by.getText());
-        produtos.setIdproduto_by(cod);
-        
-        produtos.setTipo_by((String) jCboTipo_by.getSelectedItem());   
-        produtos.setFamilia_by((String) jCboFamilia_by.getSelectedItem());   
-        
-        produtos.setData_de_fabricacao_by(null);
-        produtos.setData_de_vencimento_by(null);
-        
-        
-          int ml = Integer.parseInt(jTxtMl_by.getText());
-        produtos.setMl_by(ml);
-          int quant= Integer.parseInt(jTxtQuantidade_by.getText());
-        produtos.setQuantidade_by(quant);
-         int fk= Integer.parseInt(jTxtFk_fornecedor_by.getText());
-        produtos.setFk_forncedor_by(fk);
-        
-        
-        
-        produtos.setMarca_by(jTxtMarca_by.getText());
-        produtos.setNome_by(jTxtNome_by.getText());
-        produtos.setPreco_by(jTxtPreco_by.getText());
-        produtos.setNota_by(jTxtNota_by.getText());
-        
-        
-          Produtos_byDAO produtosDAO = new Produtos_byDAO();
-        produtosDAO.insert(produtos);
+//              Produtos_by produtos = new Produtos_by();
+//             
+//        int cod = Integer.parseInt(jTxtCodigo_by.getText());
+//        produtos.setIdproduto_by(cod);
+//        
+//        produtos.setTipo_by((String) jCboTipo_by.getSelectedItem());   
+//        produtos.setFamilia_by((String) jCboFamilia_by.getSelectedItem());   
+//        
+//        produtos.setData_de_fabricacao_by(null);
+//        produtos.setData_de_vencimento_by(null);
+//        
+//        
+//          int ml = Integer.parseInt(jTxtMl_by.getText());
+//        produtos.setMl_by(ml);
+//          int quant= Integer.parseInt(jTxtQuantidade_by.getText());
+//        produtos.setQuantidade_by(quant);
+//         int fk= Integer.parseInt(jTxtFk_fornecedor_by.getText());
+//        produtos.setFk_forncedor_by(fk);
+//        
+//        
+//        
+//        produtos.setMarca_by(jTxtMarca_by.getText());
+//        produtos.setNome_by(jTxtNome_by.getText());
+//        produtos.setPreco_by(jTxtPreco_by.getText());
+//        produtos.setNota_by(jTxtNota_by.getText());
+//        
+//        
+//          Produtos_byDAO produtosDAO = new Produtos_byDAO();
+//        produtosDAO.insert(produtos);
            
         
-        habilitar(false); 
+        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by,
+                jBtnConfirmar,jBtnCancelar);
+        Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+        Util.limpar(jTxtCodigo_by,jTxtNome_by,jCboTipo_by,jCboFamilia_by,
+                jTxtMl_by,jTxtNota_by,jTxtDataDeFabricacao_by,jTxtDataDeVencimento_by,
+                jTxtPreco_by,jTxtQuantidade_by,jTxtMarca_by,jTxtFk_fornecedor_by); 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     /**

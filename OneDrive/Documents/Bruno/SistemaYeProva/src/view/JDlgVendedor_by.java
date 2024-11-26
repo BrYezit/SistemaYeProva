@@ -4,9 +4,9 @@
  */
 package view;
 
-import dao.Vendedor_byDAO;
+
 import javax.swing.JOptionPane;
-import bean.Vendedor_by;
+import tools.Util;
 
 /**
  *
@@ -22,7 +22,9 @@ public class JDlgVendedor_by extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Vendedor");
         setLocationRelativeTo(null);
-        habilitar(false);
+        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by,jBtnConfirmar,jBtnCancelar);
     }
     
     public void habilitar(boolean valor){
@@ -134,6 +136,11 @@ public class JDlgVendedor_by extends javax.swing.JDialog {
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Excluir.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
@@ -307,48 +314,60 @@ public class JDlgVendedor_by extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        habilitar(true);
+                Util.habilitar(true,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by,jBtnConfirmar,jBtnCancelar);
+                Util.habilitar(false,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+                Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        habilitar(false);
+        Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by,jBtnConfirmar,jBtnCancelar);
+                Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+                Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         int resp = JOptionPane.showConfirmDialog(null, "Confirma exclusão", "Deletar registro", JOptionPane.YES_NO_OPTION);
-        if(resp == JOptionPane.YES_OPTION){
-            
-               Vendedor_by vendedor = new Vendedor_by();
-             
-        int cod = Integer.parseInt(jTxtCodigo_by.getText());
-        vendedor.setIdvendedor_by(cod);
-        
-        vendedor.setSexo_by((String) jCboSexo_by.getSelectedItem());   
-
-        vendedor.setDataNascimento_by(null); 
-        vendedor.setBairro_by(jTxtBairro_by.getText());
-        
-        
-        int cel = Integer.parseInt(jTxtCelular_by.getText());
-        vendedor.setCelular_by(cel);
-        
-        
-        vendedor.setCep_by(jTxtCep_by.getText());
-        vendedor.setCpf_by(jTxtCpf_by.getText());
-        vendedor.setEmail_by(jTxtEmail_by.getText());
-        vendedor.setEndereco_by(jTxtEndereco_by.getText());
-        vendedor.setNome_by(jTxtNome_by.getText());
-
-        
-        
-          Vendedor_byDAO vendedorDAO = new Vendedor_byDAO();
-        vendedorDAO.delete(vendedor);
-            
-            
-          
-        }
+//        if(resp == JOptionPane.YES_OPTION){
+//            
+//               Vendedor_by vendedor = new Vendedor_by();
+//             
+//        int cod = Integer.parseInt(jTxtCodigo_by.getText());
+//        vendedor.setIdvendedor_by(cod);
+//        
+//        vendedor.setSexo_by((String) jCboSexo_by.getSelectedItem());   
+//
+//        vendedor.setDataNascimento_by(null); 
+//        vendedor.setBairro_by(jTxtBairro_by.getText());
+//        
+//        
+//        int cel = Integer.parseInt(jTxtCelular_by.getText());
+//        vendedor.setCelular_by(cel);
+//        
+//        
+//        vendedor.setCep_by(jTxtCep_by.getText());
+//        vendedor.setCpf_by(jTxtCpf_by.getText());
+//        vendedor.setEmail_by(jTxtEmail_by.getText());
+//        vendedor.setEndereco_by(jTxtEndereco_by.getText());
+//        vendedor.setNome_by(jTxtNome_by.getText());
+//
+//        
+//        
+//          Vendedor_byDAO vendedorDAO = new Vendedor_byDAO();
+//        vendedorDAO.delete(vendedor);
+//            
+//            
+//          
+//        }
         
          // JOptionPane.showMessageDialog(null, "Exclusão ok ");
     }//GEN-LAST:event_jBtnExcluirActionPerformed
@@ -384,34 +403,51 @@ public class JDlgVendedor_by extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         
-             Vendedor_by vendedor = new Vendedor_by();
-             
-        int cod = Integer.parseInt(jTxtCodigo_by.getText());
-        vendedor.setIdvendedor_by(cod);
+//             Vendedor_by vendedor = new Vendedor_by();
+//             
+//        int cod = Integer.parseInt(jTxtCodigo_by.getText());
+//        vendedor.setIdvendedor_by(cod);
+//        
+//        vendedor.setSexo_by((String) jCboSexo_by.getSelectedItem());   
+//
+//        vendedor.setDataNascimento_by(null); 
+//        vendedor.setBairro_by(jTxtBairro_by.getText());
+//        
+//        
+//        int cel = Integer.parseInt(jTxtCelular_by.getText());
+//        vendedor.setCelular_by(cel);
+//        
+//        
+//        vendedor.setCep_by(jTxtCep_by.getText());
+//        vendedor.setCpf_by(jTxtCpf_by.getText());
+//        vendedor.setEmail_by(jTxtEmail_by.getText());
+//        vendedor.setEndereco_by(jTxtEndereco_by.getText());
+//        vendedor.setNome_by(jTxtNome_by.getText());
+//
+//        
+//        
+//          Vendedor_byDAO vendedorDAO = new Vendedor_byDAO();
+//        vendedorDAO.insert(vendedor);
         
-        vendedor.setSexo_by((String) jCboSexo_by.getSelectedItem());   
-
-        vendedor.setDataNascimento_by(null); 
-        vendedor.setBairro_by(jTxtBairro_by.getText());
-        
-        
-        int cel = Integer.parseInt(jTxtCelular_by.getText());
-        vendedor.setCelular_by(cel);
-        
-        
-        vendedor.setCep_by(jTxtCep_by.getText());
-        vendedor.setCpf_by(jTxtCpf_by.getText());
-        vendedor.setEmail_by(jTxtEmail_by.getText());
-        vendedor.setEndereco_by(jTxtEndereco_by.getText());
-        vendedor.setNome_by(jTxtNome_by.getText());
-
-        
-        
-          Vendedor_byDAO vendedorDAO = new Vendedor_byDAO();
-        vendedorDAO.insert(vendedor);
-        
-          habilitar(false); 
+                Util.habilitar(false,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by,jBtnConfirmar,jBtnCancelar);
+                Util.habilitar(true,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+                Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+        // TODO add your handling code here:
+                Util.habilitar(true,jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by,jBtnConfirmar,jBtnCancelar);
+                Util.habilitar(false,jBtnIncluir,jBtnAlterar,jBtnExcluir,jBtnPesquisar);
+                Util.limpar(jTxtCodigo_by,jTxtNome_by,jTxtCpf_by,jTxtDataNascimento_by,
+                jTxtEndereco_by,jCboSexo_by,jTxtCep_by,jTxtCelular_by,
+                jTxtEmail_by,jTxtBairro_by);
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     /**
      * @param args the command line arguments
